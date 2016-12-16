@@ -4,7 +4,8 @@ $(function () {
 var stocks = [
   "CL=F", // Crude oil, http://finance.yahoo.com/quote/CL=F?p=CL=F
   "GC=F", // Gold, https://finance.yahoo.com/quote/GC=F?p=GC=F
-  "SI=F"  // Silver, https://finance.yahoo.com/quote/SI=F?p=SI=F
+  "SI=F", // Silver, https://finance.yahoo.com/quote/SI=F?p=SI=F
+  "PL=F"  // Platinum, https://finance.yahoo.com/quote/PL=F?p=PL=F 
 ]
 
 var fields = 'f=pl1' // Requests the current price and previous closing price
@@ -44,6 +45,10 @@ $.ajax(url).done(function (csv) {
     } else if (i == 2) { // Silver
       $('#silver-price').text(currentPrice.toLocaleString())
       $('#silver-change').text(change)
+    }
+      else if (i == 3) { // Silver
+      $('#platinum-price').text(currentPrice.toLocaleString())
+      $('#platinum-change').text(change)
     }
   }
 }).fail(function (error) {
