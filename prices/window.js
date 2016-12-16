@@ -30,9 +30,9 @@ $.ajax(url).done(function (csv) {
     // Change between closing price and current price rounded to 2 decimal points.
     var change = Math.round((currentPrice - previousPrice) * 100) / 100
 
-    // Add a leading + for positive change
+    // Add a leading + for positive % change 
     if (change >= 0) {
-      change = '+' + change
+      change = '+' + Math.round((change/previousPrice) * 10000)/100 + '%'
     }
 
     // Add prices and changes to HTML element
